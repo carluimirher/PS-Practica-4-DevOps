@@ -48,10 +48,12 @@ Feature: Gestión de gastos
     And elimino el gasto con id 3
     Then el total de dinero gastado debe ser 40 euros
 
-  Scenario: Crear un gasto de 0 euros no cambia el total gastado
-    Given un gestor de gastos vacío
-    When añado un gasto de 0 euros llamado Ahorro
-    Then el total de dinero gastado debe ser 0 euros
+Scenario: Crear un gasto, eliminarlo y añadir otro gasto nuevo actualiza correctamente el total
+  Given un gestor de gastos vacío
+  When añado un gasto de 10 euros llamado Libro
+  And elimino el gasto con id 1
+  And añado un gasto de 7 euros llamado Transporte
+  Then el total de dinero gastado debe ser 7 euros
 
   Scenario: Crear dos gastos y eliminar uno mantiene el total del restante
     Given un gestor de gastos vacío
@@ -62,5 +64,5 @@ Feature: Gestión de gastos
 
   Scenario: Intentar eliminar un gasto que no existe no cambia el número de gastos
     Given un gestor con un gasto de 5 euros
-    When intento eliminar el gasto con id 2
+    When elimino el gasto con id 2
     Then debe haber 1 gastos registrados
