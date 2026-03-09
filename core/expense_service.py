@@ -1,5 +1,4 @@
 from datetime import date
-from collections import defaultdict
 from core.expense import Expense
 import abc
 
