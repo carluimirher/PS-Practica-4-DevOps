@@ -90,7 +90,7 @@ def test_create_multiple_expenses_and_list():
     - Este test valida que la función de listado refleja fielmente todos los gastos registrados hasta el momento.
     """
     service = create_service()
-    
+
     service.create_expense("Pan", 3, "Mercado")
     service.create_expense("Leche", 4, "Supermercado")
 
@@ -115,7 +115,7 @@ def test_remove_expense_reduces_total():
     - La prueba valida tanto la integridad de la operación de borrado como la actualización exacta del listado.
     """
     service = create_service()
-    
+
     service.create_expense("Libro", 3)
     service.create_expense("Revista", 4)
 
@@ -141,7 +141,7 @@ def test_update_expense_partial_fields():
     - Este test asegura que el método update_expense respeta la inmutabilidad de los campos no especificados, realizando actualizaciones parciales de manera precisa.
     """
     service = create_service()
-    
+
     service.create_expense("Camiseta", 15, "Ropa")
 
     service.update_expense(service.list_expenses()[0].id, None, 18.0, None)
@@ -162,7 +162,7 @@ def test_total_amount_after_removal():
     - Este test valida que el método total_amount refleja los cambios en el sistema ante eliminaciones, manteniendo la consistencia de los datos agregados.
     """
     service = create_service()
-    
+
     service.create_expense("Cursos", 30, "")
     service.create_expense("Internet", 25, "")
 
